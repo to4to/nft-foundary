@@ -10,7 +10,16 @@ DeployBasicNft deployer;
 BasicNft basicNft;
 
 function setUp() public   {
-
+deployer = new DeployBasicNft();
+basicNft = deployer.run();
 }
 
+
+
+function testNameIsCorrect() public view {
+  string memory actualName = basicNft.name(); 
+    string memory expectedName = "Dogie";
+
+    assertEq(actualName, expectedName);
+}
 }
