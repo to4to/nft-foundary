@@ -20,6 +20,7 @@ function testNameIsCorrect() public view {
   string memory actualName = basicNft.name(); 
     string memory expectedName = "Dogie";
 
-    assertEq(actualName, expectedName);
+    //assertEq(actualName, expectedName);
+    assertEq(keccak256(abi.encodePacked(actualName)), keccak256(abi.encodePacked(expectedName)));
 }
 }
